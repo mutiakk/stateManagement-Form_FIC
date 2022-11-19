@@ -19,6 +19,7 @@ class LtfmReviewFormView extends StatefulWidget {
               ),
               child: const Text("Rate"),
               onPressed: () async {
+
                 await showDialog<void>(
                   context: context,
                   barrierDismissible: true,
@@ -29,12 +30,36 @@ class LtfmReviewFormView extends StatefulWidget {
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
                           child: ListBody(
-                            children: const <Widget>[
-                              //! 6. Pindahkan textarea review, ratingbar, dan tombol review
-                              //!    yang berada di bawah ke dalam sini (di dalam children)
-                              //! 7. Test fitur ini dengan klik tombol Rate di pojok kanan atas
-                              //! 8. Jika popup tertutup setelah tombol review di klik,
-                              //!    Tasks ini selesai
+                            children: <Widget>[
+                              Column(
+                                children: [
+                                  QMemoField(label: "Review", onChanged: (value) {}),
+                                  RatingBar.builder(
+                                    initialRating: 2.0,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 28.0,
+                                    itemBuilder: (context, _) => Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {},
+                                  ),
+                                  SizedBox(height: 30),
+                                  MaterialButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text("Rate"),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(20)),
+                                    color: Colors.orange,
+                                    minWidth: 300,
+                                  )
+                                ],
+                              ),
                             ],
                           ),
                         ),
@@ -50,38 +75,22 @@ class LtfmReviewFormView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: const [
-              //! 1. Buat sebuah textarea "Review"
-              //! 2. Tambahkan ratingbar setelah textarea review, gunakan kode ini:
-              /*
-              RatingBar.builder(
-                initialRating: 2.0,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemSize: 28.0,
-                itemBuilder: (context, _) => Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                onRatingUpdate: (rating) {},
-              ),
-              */
-              //! 3. Tambahkan SizedBox(height: 30),
-              //! 4. Tambahkan tombol "Review"
-              //! 5. Tambahkan kode ini ketika tombol review di klik
-              /*
-              Navigator.pop(context);
-              */
-            ],
-          ),
         ),
       ),
     );
   }
 
+  //! 1. Buat sebuah textarea "Review"
+  //! 2. Tambahkan ratingbar setelah textarea review, gunakan kode ini:
+  /*
+
+              */
+  //! 3. Tambahkan
+  //! 4. Tambahkan tombol "Review"
+  //! 5. Tambahkan kode ini ketika tombol review di klik
+  /*
+              `Navigator.pop(context);`
+              */
   @override
   State<LtfmReviewFormView> createState() => LtfmReviewFormController();
 }

@@ -28,14 +28,32 @@ class LtfmSlidingFormView extends StatefulWidget {
                 child: Container(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         "Apply Leave",
                         style: TextStyle(
                           fontSize: 14.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      QDatePicker(
+                        label: "Leave Date",
+                        onChanged: (val) {},
+                      ),
+                      QMemoField(label: "Reason", onChanged: (value) {}),
+                      const Divider(),
+                      SizedBox(
+                        height: 40,
+                        width: MediaQuery.of(context).size.width,
+                        child: MaterialButton(
+                          color: Colors.orange,
+                          onPressed: () {
+                            controller.submitted = !controller.submitted;
+                            controller.update();
+                          },
+                          child: const Text("Submit"),
+                        ),
+                      )
                       //! 1. buat datepicker, atur label-nya menjadi
                       //? "Leave Date"
 

@@ -45,9 +45,6 @@ class _QTextFieldState extends State<QTextField> {
             color: Colors.blueGrey,
           ),
         ),
-        suffixIcon: const Icon(
-          Icons.text_format,
-        ),
         helperText: widget.hint,
       ),
       onChanged: widget.onChanged,

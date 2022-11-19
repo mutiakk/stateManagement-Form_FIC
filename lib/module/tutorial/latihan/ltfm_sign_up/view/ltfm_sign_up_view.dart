@@ -17,7 +17,39 @@ class LtfmSignUpView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
+              QTextField(
+                value: "demo@gmail.com",
+                label: "Email",
+                hint: "Your email",
+                onChanged: (value) {},
+              ),
+
+              QTextField(
+                value: "123456",
+                label: "Password",
+                hint: "Your password",
+                obscure: true,
+                onChanged: (value) {},
+              ),
+
+              QTextField(
+                value: "123456",
+                label: "Confirm Password",
+                hint: "Your password",
+                obscure: true,
+                onChanged: (value) {},
+              ),
+
+              ElevatedButton.icon(
+                icon: const Icon(Icons.login),
+                label: const Text("Login"),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.orange,
+                ),
+                onPressed: () => controller.doLogin(),
+              ),
+
               //! 1. Buatlah textfield email
               //! 2. Buatlah textfield password
               //! 3. Buatlah textfield confirm password

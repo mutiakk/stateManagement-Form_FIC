@@ -10,7 +10,11 @@ class LtfmProductFormView extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("LtfmProductForm"),
-        actions: const [
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextButton(onPressed: (){controller.save();}, child: Text("Save")),
+          )
           //! 5. Tambahkan tombol Save
           //! 6. Beri padding/margin pada tombol Save sebanyak 10
           //! 7. Panggil controller.save() ketika tombol di klik
@@ -20,7 +24,91 @@ class LtfmProductFormView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      QTextField(
+                        label: "Product name",
+                        hint: "Name of Product",
+                        onChanged: (value) {},
+                      ),
+                      const SizedBox(height: 10,),
+                      TextFormField(
+                        keyboardType: TextInputType.number,
+                        decoration: const InputDecoration(
+                          helperMaxLines: 15,
+                          labelText: 'Price',
+                          labelStyle: TextStyle(
+                            color: Colors.blueGrey,
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.blueGrey,
+                            ),
+                          ),
+                        ),
+                        onChanged: (value) {},
+                      ),
+                      TextFormField(
+                        maxLength: 15,
+                        decoration: const InputDecoration(
+                          helperMaxLines: 15,
+                          labelText: 'Description',
+                          labelStyle: TextStyle(
+                            color: Colors.blueGrey,
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.blueGrey,
+                            ),
+                          ),
+                        ),
+                        onChanged: (value) {},
+                      ),
+                      QDropdownField(
+                        label: "Category",
+                        hint: "Your product category",
+                        validator: Validator.required,
+                        items: const [
+                          {
+                            "label": "Food",
+                            "value": 1,
+                          },
+                          {
+                            "label": "Drink",
+                            "value": 2,
+                          },
+                          {
+                            "label": "Main Course",
+                            "value": 3,
+                          }
+                        ],
+                        onChanged: (value, label) {},
+                      ),
+                      QRadioField(
+                        label: "Status",
+                        validator: Validator.atLeastOneitem,
+                        items: const [
+                          {
+                            "label": "Published",
+                            "value": "published",
+                          },
+                          {
+                            "label": "Draft",
+                            "value": "draft",
+                          }
+                        ],
+                        onChanged: (value, label) {},
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+
               //! 1. Buat sebuah Card, tambahkan Column di dalamnya
               //! 2. Tambahkan padding.all 20.0
               //! 3. Di dalam column yang ada di dalam Card, tambahkan field ini:
@@ -29,44 +117,11 @@ class LtfmProductFormView extends StatefulWidget {
               //? textfield description (textfield dengan maxlines: 15)
               //! 4. Tambahkan dropdown untuk memilih category, gunakan kode ini:
               /*
-              QDropdownField(
-                label: "Category",
-                hint: "Your product category",
-                validator: Validator.required,
-                items: const [
-                  {
-                    "label": "Food",
-                    "value": 1,
-                  },
-                  {
-                    "label": "Drink",
-                    "value": 2,
-                  },
-                  {
-                    "label": "Main Course",
-                    "value": 3,
-                  }
-                ],
-                onChanged: (value, label) {},
-              ),
+
               */
               //! 5. Tambahkan radio untuk menentukan status product, gunakan kode ini:
               /*
-              QRadioField(
-                label: "Status",
-                validator: Validator.atLeastOneitem,
-                items: const [
-                  {
-                    "label": "Published",
-                    "value": "published",
-                  },
-                  {
-                    "label": "Draft",
-                    "value": "draft",
-                  }
-                ],
-                onChanged: (value, label) {},
-              ),
+
              */
             ],
           ),

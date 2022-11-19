@@ -10,7 +10,11 @@ class LtfmEditProfileView extends StatefulWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("LtfmEditProfile"),
-        actions: const [
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextButton(onPressed: (){controller.save();}, child: Text("Save")),
+          )
           //! 4. Tambahkan tombol Save
           //! 5. Beri padding/margin pada tombol Save sebanyak 10
           //! 6. Panggil controller.save() ketika tombol di klik
@@ -20,7 +24,27 @@ class LtfmEditProfileView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      QTextField(
+                        label: "Email",
+                        hint: "Your email",
+                        onChanged: (value) {},
+                      ),
+                      QTextField(
+                        label: "Password",
+                        hint: "Your password",
+                        obscure: true,
+                        onChanged: (value) {},
+                      ),
+                    ],
+                  ),
+                ),
+              )
               //! 1. Buat sebuah Card, tambahkan Column di dalamnya
               //! 2. Tambahkan padding.all 20.0
               //! 3. Di dalam column yang ada di dalam Card, tambahkan field ini:
