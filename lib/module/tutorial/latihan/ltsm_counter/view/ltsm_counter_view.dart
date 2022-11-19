@@ -15,9 +15,22 @@ class LtsmCounterView extends StatefulWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
+          alignment: Alignment.center,
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
+              Text(
+                controller.counter.toString(),
+                style: const TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
+              MaterialButton(
+                onPressed: () => controller.updateCounter(),
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                child: Text("Counter"),
+              )
               /*
               ? 1. ambil variabel counter, tampilkan ke dalam text
               ! controller.counter lalu tampilkan di dalam Text("")

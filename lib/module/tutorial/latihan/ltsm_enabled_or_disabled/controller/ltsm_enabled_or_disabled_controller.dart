@@ -6,6 +6,8 @@ class LtsmEnabledOrDisabledController extends State<LtsmEnabledOrDisabledView> i
   static late LtsmEnabledOrDisabledController instance;
   late LtsmEnabledOrDisabledView view;
 
+  bool enabled = false;
+
   @override
   void initState() {
     instance = this;

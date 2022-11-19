@@ -6,6 +6,7 @@ class LtsmHorizontalCategoryListController extends State<LtsmHorizontalCategoryL
   static late LtsmHorizontalCategoryListController instance;
   late LtsmHorizontalCategoryListView view;
 
+  int selectedIndex = 0;
   @override
   void initState() {
     instance = this;

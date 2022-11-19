@@ -6,6 +6,8 @@ class LtsmRotateAnimationController extends State<LtsmRotateAnimationView> imple
   static late LtsmRotateAnimationController instance;
   late LtsmRotateAnimationView view;
 
+  bool animate = false;
+
   @override
   void initState() {
     instance = this;

@@ -17,7 +17,28 @@ class LtsmLoadingView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
+              Text("Boolean Loading ${controller.load}"),
+              const SizedBox(
+                height: 10,
+              ),
+              Center(
+                  child: controller.load == true
+                      ? const CircularProgressIndicator()
+                      : Container()),
+              const SizedBox(
+                height: 10,
+              ),
+              MaterialButton(
+                onPressed: () {
+                  controller.load = !controller.load;
+                  controller.setState(() {});
+                },
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: const Text("Cek For Loading"),
+              )
               /*
               ? Buat variabel loading di dalam State/Controller
               ! bool loading = false;

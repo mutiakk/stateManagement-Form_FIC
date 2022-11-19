@@ -17,7 +17,27 @@ class LtsmVisibilityView extends StatefulWidget {
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: const [
+            children: [
+              Text("Visibility is  "+ controller.visible.toString()),
+              Center(
+                  child: controller.visible == false
+                      ? Container()
+                      : Container(
+                          width: 100.0,
+                          height: 100.0,
+                          color: Colors.red,
+                        )),
+              MaterialButton(
+                onPressed: () {
+                  controller.visible = !controller.visible;
+                  controller.setState(() {});
+                  print("visible");
+                },
+                color: Colors.orange,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                child: const Text("Cek Visibility"),
+              ),
               /*
               ? Buat variabel visible di dalam State/Controller
               ! bool visible = false;

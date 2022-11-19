@@ -6,6 +6,8 @@ class LtsmSlideAnimationController extends State<LtsmSlideAnimationView> impleme
   static late LtsmSlideAnimationController instance;
   late LtsmSlideAnimationView view;
 
+  bool animate = false;
+
   @override
   void initState() {
     instance = this;

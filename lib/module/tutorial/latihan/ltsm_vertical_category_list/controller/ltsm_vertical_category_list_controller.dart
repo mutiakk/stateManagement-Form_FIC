@@ -6,6 +6,8 @@ class LtsmVerticalCategoryListController extends State<LtsmVerticalCategoryListV
   static late LtsmVerticalCategoryListController instance;
   late LtsmVerticalCategoryListView view;
 
+  int selectedIndex = 0;
+
   @override
   void initState() {
     instance = this;

@@ -6,6 +6,8 @@ class LtsmVisibilityController extends State<LtsmVisibilityView> implements MvcC
   static late LtsmVisibilityController instance;
   late LtsmVisibilityView view;
 
+  bool visible = false;
+
   @override
   void initState() {
     instance = this;

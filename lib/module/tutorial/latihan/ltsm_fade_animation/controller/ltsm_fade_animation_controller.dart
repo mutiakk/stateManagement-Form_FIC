@@ -6,6 +6,7 @@ class LtsmFadeAnimationController extends State<LtsmFadeAnimationView> implement
   static late LtsmFadeAnimationController instance;
   late LtsmFadeAnimationView view;
 
+  bool animate = false;
   @override
   void initState() {
     instance = this;
